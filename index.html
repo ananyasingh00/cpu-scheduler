@@ -4,13 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CPU Scheduler Simulator</title>
-  <link rel="stylesheet" href="style.css" />
+  <link id="theme-style" rel="stylesheet" href="dark.css" />
 </head>
 <body>
   <header>
     <h1><img src="title.png" alt="Add Icon" class="cpu-img" />CPU Scheduler Simulator<img src="title.png" alt="Add Icon" class="cpu-img" /></h1>
     <p>Visualize and compare CPU scheduling algorithms</p>
   </header>
+  
+<div id="themeButtons">
+  <button onclick="changeTheme('dark')">Dark Mode</button>
+  <button onclick="changeTheme('light')">Light Mode</button>
+  <button onclick="changeTheme('colorful')">Colorful Mode</button>
+</div>
 
   <!-- 👇 Side-by-side layout for form and algorithm config -->
   <div id="config-panel">

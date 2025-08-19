@@ -4,61 +4,63 @@
   padding: 0;
   box-sizing: border-box;
   transition: all 0.3s ease;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 /* === Body & Background === */
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #0d0d0d;
-  color: #e0e0e0;
+  background-color: #f5f7fa; /* light professional background */
+  color: #1b2a47; /* dark blue text */
   min-height: 100vh;
   padding-bottom: 60px;
 }
 
 /* === Header === */
 header {
-  background: #1a1a1a;
+  background: #ffffff;
   border-radius: 12px;
   margin: 30px auto 24px;
   padding: 32px;
   text-align: center;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #d0d7e0;
   max-width: 999px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 header h1 {
   font-size: 3.2em;
-  color: #ffffff;
+  color: #1b2a47;
   margin-bottom: 8px;
 }
 
 header p {
   font-size: 1em;
-  color: #bfbfbf;
+  color: #5a6b8c;
 }
 
 /* === Sections === */
 section {
   margin: 40px auto;
-  padding: 20px;
+  padding: 25px;
   width: 92%;
   max-width: 1000px;
-  background: #141414;
+  background: #e1ebf7; /* soft blue section */
   border-radius: 12px;
-  border: 1px solid #333;
+  border: 1px solid #c5d1e5;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 section:not(.hidden) {
   opacity: 1;
+  transform: translateY(0);
 }
 
 section h2 {
   margin-bottom: 16px;
   font-weight: 600;
   font-size: 1.5em;
-  color: #ffffff;
+  color: #1b2a47;
 }
 
 /* === Form & Controls === */
@@ -67,25 +69,25 @@ form select,
 form button,
 #quantum {
   padding: 10px 14px;
-  margin: 4px;
+  margin: 4px 0;
   border-radius: 8px;
-  border: 1px solid #444;
+  border: 1px solid #b0c4de;
   font-size: 1em;
-  background-color: #1e1e1e;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #1b2a47;
 }
 
 form input::placeholder,
 #quantum::placeholder {
-  color: #777;
+  color: #7a8ba6;
 }
 
-/* === Styled Dropdown === */
+/* === Dropdown === */
 select {
   appearance: none;
-  background-color: #1e1e1e;
-  color: #ffffff;
-  border: 1px solid #444;
+  background-color: #ffffff;
+  color: #1b2a47;
+  border: 1px solid #b0c4de;
   padding: 10px 14px;
   border-radius: 8px;
   font-size: 1em;
@@ -98,33 +100,31 @@ select {
 
 select:focus {
   outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74,144,226,0.4);
 }
 
 /* === Buttons === */
 form button,
 button {
-  background-color: #2b2b2b;
+  background-color: #4a90e2;
   color: #ffffff;
-  border: 1px solid #555;
+  border: none;
   font-weight: bold;
   border-radius: 8px;
   padding: 10px 20px;
   cursor: pointer;
-}
-
-form button:hover,
-button:hover {
-  background-color: #3a3a3a;
+ 
 }
 
 /* === Process List === */
 #processList div {
   margin: 6px 0;
   padding: 10px;
-  background-color: #1c1c1c;
+  background-color: #f0f5fa;
   border-radius: 8px;
-  color: #e0e0e0;
-  border: 1px solid #333;
+  color: #1b2a47;
+  border: 1px solid #c5d1e5;
 }
 
 /* === Gantt Chart === */
@@ -141,18 +141,18 @@ button:hover {
   border-radius: 4px;
   margin-right: 2px;
   display: inline-block;
-  background-color: #2a2a2a;
-  color: #ffffff;
+  background-color: #d6e4f5;
+  color: #1b2a47;
 }
 
 .block.idle {
-  background-color: #1e1e1e;
-  color: #999999;
+  background-color: #e8f0fa;
+  color: #7a8ba6;
   font-style: italic;
   background-image: repeating-linear-gradient(
     45deg,
-    #333 0px,
-    #333 4px,
+    #cddbf2 0px,
+    #cddbf2 4px,
     transparent 4px,
     transparent 8px
   );
@@ -163,19 +163,19 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 16px;
-  color: #e0e0e0;
+  color: #1b2a47;
 }
 
 th, td {
   padding: 10px;
-  border: 1px solid #444;
+  border: 1px solid #c5d1e5;
   text-align: center;
-  background-color: #1b1b1b;
+  background-color: #f0f5fa;
 }
 
 th {
-  background-color: #2a2a2a;
-  color: #ffffff;
+  background-color: #d6e4f5;
+  color: #1b2a47;
 }
 
 /* === Metrics Section === */
@@ -183,7 +183,7 @@ th {
   margin: 40px auto;
   max-width: 1000px;
   padding: 24px;
-  background-color: #141414;
+  background-color: #e1ebf7;
   border-radius: 12px;
 }
 
@@ -196,13 +196,14 @@ th {
 }
 
 .metric-box {
-  background-color: #1f1f1f;
-  color: #ffffff;
+  background-color: #f0f5fa;
+  color: #1b2a47;
   font-size: 1em;
   font-weight: 500;
   padding: 15px;
   border-radius: 10px;
   text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
 /* === Scrollbar Styling === */
@@ -210,14 +211,14 @@ th {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #111;
+  background: #f5f7fa;
 }
 ::-webkit-scrollbar-thumb {
-  background: #444;
+  background: #b0c4de;
   border-radius: 4px;
 }
 
-/* === Config Panel Refinement === */
+/* === Config Panel === */
 #config-panel {
   display: flex;
   gap: 30px;
@@ -225,14 +226,6 @@ th {
   max-width: 1000px;
   justify-content: center;
   align-items: stretch;
-}
-
-#process-form {
-  background: #1a1a1a;
-}
-
-#algorithm-config {
-  background: #1c1c1c;
 }
 
 #process-form,
@@ -243,7 +236,9 @@ th {
   justify-content: space-between;
   padding: 24px;
   border-radius: 12px;
+  background-color: #e1ebf7;
   min-height: 300px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
 }
 
 /* === Algorithm Description Box === */
@@ -252,18 +247,19 @@ th {
   margin-top: 12px;
   margin-bottom: 6px;
   font-weight: bold;
-  color: #ffffff;
+  color: #1b2a47;
   font-size: 1em;
 }
 
 .desc-box {
-  background-color: #1e1e1e;
+  background-color: #f0f5fa;
   border-radius: 8px;
   padding: 12px;
-  color: #bfbfbf;
+  color: #1b2a47;
   font-style: italic;
   min-height: 60px;
   line-height: 1.4;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
 }
 
 /* === Responsive Fix === */
@@ -307,6 +303,7 @@ th {
   min-width: 120px;
 }
 
+/* === Icons === */
 .icon-img {
   width: 22px;
   height: 22px;
@@ -334,7 +331,7 @@ th {
   width: 20px;
   height: 20px;
   transition: transform 0.2s ease;
-  filter: invert(1); /* keep white icon look */
+  filter: invert(0);
 }
 
 .delete-btn:hover .delete-icon {
@@ -350,27 +347,29 @@ th {
   margin-left: 5px;
 }
 
+/* === Algo Details Box === */
 #algoDetails {
-  background-color: #1a1a1a;
+  background-color: #e1ebf7;
   border-radius: 12px;
   padding: 24px;
   margin: 30px auto;
   max-width: 1000px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.6);
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
 
 #algoDetails h2 {
   font-size: 1.8em;
-  color: #ffffff;
+  color: #1b2a47;
   margin-bottom: 10px;
 }
 
 #algoDetails p {
   font-size: 1em;
-  color: #cccccc;
+  color: #1b2a47;
   margin-bottom: 20px;
 }
 
+/* === Info Boxes === */
 .row {
   display: flex;
   gap: 20px;
@@ -380,23 +379,23 @@ th {
 
 .infoBox {
   flex: 1;
-  background-color: #1e1e1e;
+  background-color: #f0f5fa;
   border-radius: 10px;
   padding: 16px;
-  box-shadow: 0 0 6px rgba(0,0,0,0.4);
+  box-shadow: 0 0 6px rgba(0,0,0,0.05);
   min-width: 280px;
 }
 
 .infoBox h3 {
   font-size: 1.2em;
   margin-bottom: 10px;
-  color: #ffffff;
+  color: #1b2a47;
 }
 
 .infoBox p,
 .infoBox ul {
   font-size: 1em;
-  color: #bfbfbf;
+  color: #1b2a47;
   margin: 0;
   padding: 0;
 }
@@ -404,4 +403,33 @@ th {
 .infoBox ul {
   list-style-type: disc;
   padding-left: 20px;
+}
+
+/* === Theme Buttons === */
+#themeButtons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#themeButtons button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid #4a90e2;
+  background-color: #4a90e2;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#themeButtons button:hover {
+  background-color: #3572b0;
+  transform: scale(1.05);
+}
+
+#themeButtons button.active {
+  border: 2px solid #3572b0;
+  background-color: #3572b0;
 }

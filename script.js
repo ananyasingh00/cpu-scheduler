@@ -256,7 +256,7 @@ function renderChartFromTimeline(timeline) {
   chart.innerHTML = "";
 
   let current = timeline[0], start = 0;
-
+  
   for (let i = 1; i <= timeline.length; i++) {
     if (timeline[i] !== current) {
       const block = document.createElement("div");
@@ -552,5 +552,12 @@ function runPriorityP() {
   renderChartFromTimeline(timeline);
   renderTable(results);
   updateMetrics(results);
+}
+
+function changeTheme(theme) {
+  const themeLink = document.getElementById('theme-style');
+  if (theme === 'dark') themeLink.href = 'dark.css';
+  else if (theme === 'light') themeLink.href = 'light.css';
+  else if (theme === 'colorful') themeLink.href = 'colorful.css';
 }
 
