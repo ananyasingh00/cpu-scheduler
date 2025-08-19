@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CPU Scheduler Simulator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1><img src="title.png" alt="Add Icon" class="cpu-img" />CPU Scheduler Simulator<img src="title.png" alt="Add Icon" class="cpu-img" /></h1>
+    <p>Visualize and compare CPU scheduling algorithms</p>
+  </header>
+
+  <!-- 👇 Side-by-side layout for form and algorithm config -->
+  <div id="config-panel">
+    <section id="process-form">
+      <h2><img src="pl.png" alt="Add Icon" class="icon-img" />Add Process</h2>
+      <form id="addProcessForm">
+        <!-- First row: Process Name + Arrival Time -->
+        <div class="input-group">
+          <input type="text" placeholder="Process Name" id="pname" required />
+          <input type="number" placeholder="Arrival Time" id="arrival" required />
+        </div>
+
+        <!-- Second row: Burst Time + Priority -->
+        <div class="input-group">
+          <input type="number" placeholder="Burst Time" id="burst" required />
+          <input type="number" placeholder="Priority" id="priority" required />
+        </div>
+
+        <!-- Button row -->
+        <div class="button-group">
+          <button type="submit">Add Process</button>
+          <button type="button" id="loadSampleBtn">Load Sample Data</button>
+          <button type="button" id="resetBtn">Reset All</button>
+        </div>
+      </form>
+      <div id="processList"></div>
+    </section>
+
+    <section id="algorithm-config">
+      <h2><img src="set.png" alt="Add Icon" class="icon-img" />Select Algorithm</h2>
+      <select id="algorithm">
+        <option value="FCFS">FCFS</option>
+        <option value="SJF">SJF</option>
+        <option value="SRTF">SRTF</option>
+        <option value="RR">Round Robin</option>
+        <option value="PriorityNP">Priority (Non-Preemptive)</option>
+        <option value="PriorityP">Priority (Preemptive)</option>
+      </select>
+      <label for="algoDescription" class="desc-label">Algorithm Description</label>
+      <div id="algoDescription" class="desc-box">
+        First Come First Serve: Non-preemptive. Executes processes in order of arrival. Simple but can cause long wait times.
+      </div>
+      <input type="number" id="quantum" placeholder="Time Quantum (RR only)" />
+      <button onclick="runScheduler()"><img src="rr.png" alt="Add Icon" class="icon-img" />Run Simulation</button>
+    </section>
+  </div>
+
+ 
+  <section id="algoDetails">
+  <h2 id="algoTitle"><img src="flow.png" alt="Add Icon" class="icon-img" />First Come First Serve (FCFS)</h2>
+  <p id="algoDesc">Executes the first process that arrives. Simple but can lead to long waiting times for longer processes.</p>
+
+  <div class="row">
+    <div class="infoBox" id="timeBox">
+      <h3>⏰Time Complexity</h3>
+      <p id="algoTime">O(n)</p>
+    </div>
+    <div class="infoBox" id="useBox">
+      <h3>💡Best Use Case</h3>
+      <p id="algoUse">Simple batch systems</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="infoBox" id="advBox">
+      <h3>📈Advantages</h3>
+      <ul id="algoAdv"></ul>
+    </div>
+    <div class="infoBox" id="disadvBox">
+      <h3>📉Disadvantages</h3>
+      <ul id="algoDisadv"></ul>
+    </div>
+  </div>
+</section>
+
+  <section id="gantt-chart" class="hidden">
+    <h2><img src="gan.png" alt="Add Icon" class="icon-img" />Gantt Chart</h2>
+    <div id="chart"></div>
+
+  </section>
+
+  <section id="results" class="hidden">
+    <h2><img src="ta.png" alt="Add Icon" class="icon-img" />Results Table</h2>
+    <table id="resultsTable">
+      <thead>
+        <tr>
+          <th>Process</th><th>AT</th><th>BT</th><th>Priority</th>
+          <th>Start</th><th>Completion</th><th>Turnaround</th>
+          <th>Waiting</th><th>Response</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section id="metrics" class="hidden">
+    <h2><img src="res.png" alt="Add Icon" class="icon-img" />Performance Metrics</h2>
+    <div class="metrics-grid">
+    <div class="metric-box" id="avgWT">Average Waiting Time</div>
+    <div class="metric-box" id="avgTAT">Average Turnaround Time</div>
+    <div class="metric-box" id="avgRT">Average Response Time</div>
+    <div class="metric-box" id="cpuUtil">CPU Utilization</div>
+  </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
